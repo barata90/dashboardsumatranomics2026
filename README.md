@@ -49,10 +49,11 @@ parameter, dan hal itu dilaporkan apa adanya.
 │   ├── Data_Sumut_IHK_Inflasi_Harga_20202026.xlsx
 │   ├── NTP_Sumatera_Utara_20202026_Terstruktur.xlsx
 │   └── Diagram_Timbang_NTP_2018_Sumatera_Utara.xlsx
-├── dashboard/
-│   └── dashboard_sumatranomics_2026.html
+├── index.html                      # aplikasi web, tayang lewat GitHub Pages
 ├── paper/
 │   └── Paper_Sumatranomics_2026_Sumatera_Utara.docx
+├── requirements.txt
+├── LICENSE
 └── README.md
 ```
 
@@ -96,8 +97,8 @@ kebijakan.
 Diuji pada Python 3.11.14 dengan JupyterLab.
 
 ```bash
-git clone https://github.com/<pengguna>/<repositori>.git
-cd <repositori>
+git clone https://github.com/barata90/dashboardsumatranomics2026.git
+cd dashboardsumatranomics2026
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
@@ -119,8 +120,10 @@ dihabiskan pada pencarian NSGA-III dan propagasi ketidakpastian.
 
 ## Aplikasi web
 
-Berkas `dashboard/dashboard_sumatranomics_2026.html` bersifat mandiri, satu berkas, tanpa proses
-pembangunan dan tanpa peladen. Cukup buka melalui peramban.
+Aplikasi tayang di **https://barata90.github.io/dashboardsumatranomics2026/**
+
+Berkas `index.html` bersifat mandiri, satu berkas, tanpa proses pembangunan dan tanpa peladen,
+sehingga dapat pula diunduh lalu dibuka langsung melalui peramban tanpa sambungan internet.
 
 Sebelas bagian yang tersedia: ringkasan temuan, integrasi pasar, guncangan harga, struktur sistem
 dinamik, dominansi loop, uji kelayakan model, daya jangkau instrumen, simulasi paket kebijakan,
