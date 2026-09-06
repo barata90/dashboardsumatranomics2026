@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+.jupyter/
+
+# Sistem operasi
+.DS_Store
+__MACOSX/
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Luaran sementara dan berkas besar
+outputs/tmp/
+*.log
+*.zip
+~$*.docx
+~$*.xlsx
+
+# Data mentah yang tidak boleh diunggah ulang
+# hapus tanda pagar di bawah bila berkas data dibatasi lisensinya
+# data/mentah/
