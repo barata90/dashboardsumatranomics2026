@@ -2130,23 +2130,24 @@ function ceritaWil(i) {
    11 CARA MEMBACA
    ===================================================================== */
 var GLOS = [
-  ["Dinamika sistem", [
-    ["Causal loop diagram", "diagram sebab akibat melingkar",
-      "Peta yang menampilkan besaran sebagai kotak dan pengaruh antarbesaran sebagai panah bertanda. Cara membacanya, telusuri panah sampai kembali ke titik awal. Rangkaian tertutup itulah yang disebut loop, dan susunan loop menentukan perilaku sistem sepanjang waktu."],
-    ["Feedback loop", "loop sebab akibat tertutup",
-      "Rangkaian pengaruh yang kembali ke titik awalnya, sehingga akibat berbalik menjadi sebab. Menurut kerangka Forrester dan Sterman, gejolak harga pangan tidak dapat dijelaskan dengan menunjuk penyebabnya satu per satu, melainkan muncul dari cara loop saling memperkuat atau saling meredam."],
-    ["Balancing loop", "loop peredam",
-      "Loop dengan jumlah tautan bertanda negatif ganjil. Loop ini menarik sistem kembali menuju keseimbangan setelah terganggu, misalnya arbitrase yang menarik harga kabupaten kembali ke acuan provinsi."],
+  ["Dinamika sistem (System Dynamics)",
+     "Kerangka pemodelan yang memandang sistem bukan sebagai rangkaian kejadian linier, melainkan sebagai jaringan hubungan sebab-akibat yang saling terkait. Alat utamanya adalah pemetaan visual untuk memahami bagaimana struktur internal sistem melahirkan perilakunya sepanjang waktu."[
+    ["Causal loop diagram", "diagram sebab-akibat melingkar",
+      "Representasi visual dari struktur sistem. Peta ini menampilkan variabel-variabel kunci sebagai simpul dan arah pengaruhnya sebagai panah (positif atau negatif). Dengan menelusuri panah hingga kembali ke titik awal, kita menemukan loop (lingkaran). Interaksi antar-loop inilah yang menjelaskan mengapa sistem berperilaku dinamis, bukan statis."],
+    ["Feedback loop", "loop sebab-akibat tertutup",
+      "Rangkaian hubungan sebab-akibat yang tertutup, di mana output dari suatu proses kembali memengaruhi input-nya. Dalam kerangka Forrester dan Sterman, fluktuasi harga pangan tidak dijelaskan oleh penyebab tunggal yang linier, melainkan oleh bagaimana berbagai loop ini saling berinteraksi, memperkuat, atau meredam satu sama lain."],
+    ["Balancing loop", "loop penyeimbang/peredam",
+      "Loop yang mengandung jumlah tautan negatif ganjil. Secara struktural, loop ini bertindak sebagai mekanisme stabilisasi yang menarik sistem kembali ke titik keseimbangan (atau target) saat terjadi gangguan. Contoh: mekanisme arbitrase yang secara otomatis menekan harga di daerah mahal dan menariknya menuju acuan harga provinsi."],
     ["Reinforcing loop", "loop penguat",
       "Loop dengan jumlah tautan bertanda negatif genap. Loop ini memperbesar gangguan awal, misalnya harga pangan yang naik menaikkan kemiskinan, lalu menyusutkan pasokan, sehingga harga naik lagi."],
     ["Stock dan flow", "stok dan aliran",
-      "Stok adalah besaran yang menumpuk sepanjang waktu, misalnya persediaan pangan atau stok modal. Flow adalah laju yang menambah atau mengurangi stok. Gabungan stok dan jeda waktu itulah yang menghasilkan gerak naik turun berulang pada pasar komoditas."],
+      "Stock (stok) adalah besaran yang terakumulasi pada waktu tertentu (misal: cadangan beras atau populasi). Flow (aliran) adalah laju aktivitas yang menambah atau mengurangi stok tersebut per satuan waktu. Inersia (kelembaman) yang dihasilkan oleh akumulasi stok dan jeda waktu (delay) inilah yang menciptakan siklus naik-turun yang khas pada pasar komoditas."],
     ["Loop knockout", "penonaktifan loop",
-      "Prosedur menonaktifkan satu loop sementara loop lain dibiarkan bekerja, lalu mencatat seberapa jauh output model bergeser. Pergeseran yang besar menandakan loop itu dominan, dan nol berarti loop tersebut tidak berperan pada horizon yang diuji."],
-    ["Cobweb", "siklus sarang laba-laba",
-      "Pola klasik siklus produksi pertanian menurut Ezekiel (1938). Petani menanggapi harga musim lalu, panen berlimpah menekan harga, harga rendah menyusutkan tanam berikutnya, dan siklus berulang."],
-    ["Policy resistance", "perlawanan sistem terhadap kebijakan",
-      "Keadaan ketika kebijakan gagal berulang kali karena diterapkan pada titik yang tidak dominan di dalam struktur loop. Pemeriksaan dominansi loop dilakukan justru untuk menghindari hal ini."]
+      "Prosedur analitis dengan menonaktifkan satu loop tertentu sementara membiarkan loop lain tetap bekerja, lalu mengukur pergeseran pada output model. Jika pergeseran signifikan, loop tersebut terbukti dominan. Jika pergeseran nol, loop itu dapat diabaikan pada horizon waktu yang diuji. Ini adalah kunci untuk memetakan tuas kebijakan yang paling efektif."],
+    ["Cobweb Theorem", "siklus sarang laba-laba",
+      "Model klasik fluktuasi harga komoditas pertanian (Ezekiel, 1938) yang dipicu oleh jeda waktu produksi. Petani mengambil keputusan tanam berdasarkan harga musim lalu; ketika panen tiba, penawaran membanjiri pasar dan menekan harga, yang kemudian memicu pengurangan tanam di musim berikutnya, menciptakan siklus osilasi yang berulang."],
+    ["Policy resistance", "resistensi kebijakan",
+      "Fenomena ketika intervensi kebijakan gagal atau bahkan memperburuk masalah karena diterapkan pada titik yang salah dalam struktur sistem (melawan loop penguat yang dominan). Analisis dominansi loop dalam dashboard ini secara spesifik dirancang untuk memetakan struktur yang tepat, sehingga kebijakan yang dirumuskan tidak ditolak oleh sistem."]
   ]],
   ["Estimasi parameter", [
     ["Error correction model", "model koreksi kesalahan",
