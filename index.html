@@ -590,7 +590,7 @@ svg text{font-family:var(--sans)}
 
   <div class="two">
     <div class="shell"><div class="core">
-      <div class="bh"><h3>Ketepatan model terhadap sejarah harga</h3><span class="lbl">klik batang</span></div>
+      <div class="bh"><h3>Ketepatan model terhadap historis harga</h3><span class="lbl">klik batang</span></div>
       <div class="bb"><div id="cTheil"></div>
         <div class="legend">Angka menyatakan <i>mean absolute percentage error</i> (galat persentase absolut
         rata-rata) pada periode validasi. Beras, sebagai komoditas dengan bobot terbesar, memiliki galat
@@ -1522,14 +1522,14 @@ var BARLAS_JELAS = [
   "Uji ini memeriksa kesetaraan satuan pada setiap persamaan dan menutup neraca massa antara produksi, stok, dan konsumsi. Galat neraca massa nol berarti tidak ada barang yang hilang atau muncul tanpa sebab di dalam model.",
   "Uji ini mendorong parameter ke nilai ekstrem, misalnya produksi nol atau permintaan berlipat, lalu memeriksa apakah model tetap berperilaku masuk akal. Model yang meledak atau menghasilkan stok negatif pada kondisi ekstrem tidak layak dipakai.",
   "Uji ini membelah langkah waktu integrasi lalu membandingkan hasilnya. Deviasi yang sangat kecil berarti hasil simulasi berasal dari struktur model, bukan dari cara model dihitung.",
-  "Uji ini membandingkan lintasan model terhadap sejarah harga yang benar-benar terjadi. Galat persentase absolut rata-rata tertimbang sebesar 12,89 persen tergolong wajar untuk model harga komoditas bulanan.",
+  "Uji ini membandingkan lintasan model terhadap historis harga yang benar-benar terjadi. Galat persentase absolut rata-rata tertimbang sebesar 12,89 persen tergolong wajar untuk model harga komoditas bulanan.",
   "Uji ini menjalankan ulang model pada banyak replikasi parameter, lalu memeriksa apakah arah dampak kebijakan tetap. Arah dampak pada kemiskinan berubah tanda antarreplikasi, sehingga kesimpulan mengenai kemiskinan dinyatakan tidak konklusif. Penyebabnya sudah diketahui sejak tahap estimasi, yaitu selang kepercayaan elastisitas garis kemiskinan terhadap harga pangan yang mencakup nol."
 ];
 var CAKUP = [
   ["33", "kabupaten dan kota", "Seluruh anggota populasi dianalisis, sehingga penelitian ini tidak melakukan penarikan sampel. Unit analisis pada blok harga adalah kombinasi wilayah, komoditas, dan bulan."],
   ["6", "komoditas endogen", "Beras, cabai merah, cabai rawit, bawang merah, bawang putih, dan kentang. Keenamnya dipilih karena datanya lengkap pada tiga sisi sekaligus, dan bersama-sama menyusun 8,04 persen keranjang indeks harga konsumen Sumatera Utara."],
   ["1.194", "variabel keadaan", "Jumlah variabel keadaan pada versi blok pangan. Versi tujuh blok memuat 1.485 variabel keadaan. Setiap variabel keadaan menyimpan pengaruh kejadian sebelumnya, dan dari situlah dinamika sistem muncul."],
-  ["72", "bulan periode validasi", "Lintasan model dibandingkan terhadap sejarah harga selama 72 bulan, sedangkan horizon simulasi kebijakan berjalan 36 bulan ke depan."],
+  ["72", "bulan periode validasi", "Lintasan model dibandingkan terhadap historis harga selama 72 bulan, sedangkan horizon simulasi kebijakan berjalan 36 bulan ke depan."],
   ["334", "model koreksi kesalahan", "Diestimasi terpisah untuk setiap pasangan wilayah dan komoditas. Sebanyak 85,3 persen menghasilkan koefisien penyesuaian bertanda negatif dan signifikan sebagaimana diharapkan teori."],
   ["96", "parameter diestimasi", "Sebanyak 39 parameter berpresisi tinggi, 12 berpresisi sedang, dan 45 berpresisi rendah atau tidak terukur. Kelompok terakhir tidak dipakai sebagai nilai tunggal, melainkan ditelusuri sepanjang selang kepercayaannya."]
 ];
@@ -2133,52 +2133,52 @@ var GLOS = [
   [
     "Dinamika Sistem",
     [
-      ["Dinamika sistem (System Dynamics)", "", "Kerangka pemodelan yang memandang sistem bukan sebagai rangkaian kejadian linier, melainkan sebagai jaringan hubungan sebab-akibat yang saling terkait. Alat utamanya adalah pemetaan visual untuk memahami bagaimana struktur internal sistem melahirkan perilakunya sepanjang waktu."],
-      ["Causal loop diagram", "diagram sebab-akibat melingkar", "Representasi visual dari struktur sistem. Peta ini menampilkan variabel-variabel kunci sebagai simpul dan arah pengaruhnya sebagai panah (positif atau negatif). Dengan menelusuri panah hingga kembali ke titik awal, kita menemukan loop (lingkaran). Interaksi antar-loop inilah yang menjelaskan mengapa sistem berperilaku dinamis, bukan statis."],
-      ["Feedback loop", "loop sebab-akibat tertutup", "Rangkaian hubungan sebab-akibat yang tertutup, di mana output dari suatu proses kembali memengaruhi input-nya. Dalam kerangka Forrester dan Sterman, fluktuasi harga pangan tidak dijelaskan oleh penyebab tunggal yang linier, melainkan oleh bagaimana berbagai loop ini saling berinteraksi, memperkuat, atau meredam satu sama lain."],
-      ["Balancing loop", "loop penyeimbang/peredam", "Loop yang mengandung jumlah tautan negatif ganjil. Secara struktural, loop ini bertindak sebagai mekanisme stabilisasi yang menarik sistem kembali ke titik keseimbangan (atau target) saat terjadi gangguan. Contoh: mekanisme arbitrase yang secara otomatis menekan harga di daerah mahal dan menariknya menuju acuan harga provinsi."],
-      ["Reinforcing loop", "loop penguat", "Loop dengan jumlah tautan bertanda negatif genap. Loop ini memperbesar gangguan awal, misalnya harga pangan yang naik menaikkan kemiskinan, lalu menyusutkan pasokan, sehingga harga naik lagi."],
-      ["Stock dan flow", "stok dan aliran", "Stock (stok) adalah besaran yang terakumulasi pada waktu tertentu (misal: cadangan beras atau populasi). Flow (aliran) adalah laju aktivitas yang menambah atau mengurangi stok tersebut per satuan waktu. Inersia (kelembaman) yang dihasilkan oleh akumulasi stok dan jeda waktu (delay) inilah yang menciptakan siklus naik-turun yang khas pada pasar komoditas."],
-      ["Loop knockout", "penonaktifan loop", "Prosedur analitis dengan menonaktifkan satu loop tertentu sementara membiarkan loop lain tetap bekerja, lalu mengukur pergeseran pada output model. Jika pergeseran signifikan, loop tersebut terbukti dominan. Jika pergeseran nol, loop itu dapat diabaikan pada horizon waktu yang diuji. Ini adalah kunci untuk memetakan tuas kebijakan yang paling efektif."],
-      ["Cobweb Theorem", "siklus sarang laba-laba", "Model klasik fluktuasi harga komoditas pertanian (Ezekiel, 1938) yang dipicu oleh jeda waktu produksi. Petani mengambil keputusan tanam berdasarkan harga musim lalu; ketika panen tiba, penawaran membanjiri pasar dan menekan harga, yang kemudian memicu pengurangan tanam di musim berikutnya, menciptakan siklus osilasi yang berulang."],
-      ["Policy resistance", "resistensi kebijakan", "Fenomena ketika intervensi kebijakan gagal atau bahkan memperburuk masalah karena diterapkan pada titik yang salah dalam struktur sistem (melawan loop penguat yang dominan). Analisis dominansi loop dalam dashboard ini secara spesifik dirancang untuk memetakan struktur yang tepat, sehingga kebijakan yang dirumuskan tidak ditolak oleh sistem."]
+      ["Dinamika sistem", "System Dynamics", "Kerangka pemodelan yang memandang sistem sebagai jaringan hubungan sebab-akibat yang saling terkait, bukan sekadar rangkaian kejadian linier. Alat utamanya adalah pemetaan visual untuk memahami bagaimana struktur internal sistem melahirkan perilakunya sepanjang waktu."],
+      ["Causal loop diagram", "diagram sebab-akibat melingkar", "Peta visual yang menampilkan variabel-variabel kunci dan arah pengaruhnya. Dengan menelusuri panah hingga kembali ke titik awal, kita menemukan loop (lingkaran umpan balik) yang menjelaskan mengapa sistem berperilaku dinamis."],
+      ["Feedback loop", "lingkaran umpan balik", "Rangkaian sebab-akibat tertutup di mana hasil dari suatu proses kembali memengaruhi proses itu sendiri. Fluktuasi harga pangan dijelaskan oleh bagaimana berbagai loop ini saling berinteraksi, memperkuat, atau meredam satu sama lain."],
+      ["Balancing loop", "loop penyeimbang", "Loop yang bertindak sebagai mekanisme penstabil. Loop ini menarik sistem kembali menuju keseimbangan atau target saat terjadi gangguan, misalnya arbitrase yang menarik harga daerah kembali ke acuan provinsi."],
+      ["Reinforcing loop", "loop penguat", "Loop yang memperbesar gangguan awal. Loop ini mendorong sistem bergerak menjauhi keseimbangan, misalnya harga pangan yang naik menaikkan kemiskinan, lalu menyusutkan pasokan, sehingga harga naik lagi."],
+      ["Stock dan flow", "stok dan aliran", "Stock adalah besaran yang terakumulasi pada waktu tertentu (misalnya stok beras). Flow adalah laju yang menambah atau mengurangi stock tersebut. Jeda waktu dalam akumulasi ini sering kali menyebabkan siklus naik-turun pada pasar komoditas."],
+      ["Loop knockout", "uji dominansi loop", "Prosedur menguji dominansi loop dengan menonaktifkan satu loop sementara yang lain tetap bekerja. Jika output model berubah signifikan, loop tersebut terbukti dominan dan menjadi penggerak utama sistem."],
+      ["Cobweb Theorem", "siklus sarang laba-laba", "Model siklus harga komoditas pertanian di mana petani mengambil keputusan tanam berdasarkan harga musim lalu, sehingga menciptakan pola osilasi harga yang berulang."],
+      ["Policy resistance", "resistensi kebijakan", "Kondisi ketika kebijakan gagal karena diterapkan pada titik yang salah dalam struktur sistem, sehingga sistem secara alami menolak atau membatalkan dampak kebijakan tersebut."]
     ]
   ],
   [
     "Estimasi Parameter",
     [
-      ["Error correction model", "model koreksi kesalahan", "Model yang memisahkan penyesuaian jangka panjang menuju keseimbangan dari penerusan guncangan jangka pendek. Dipakai untuk mengukur kecepatan harga kabupaten menyusul acuan provinsi. Koefisien penyesuaiannya harus bertanda negatif agar sejalan dengan teori."],
-      ["Half-life", "paruh waktu penyesuaian", "Jumlah bulan yang dibutuhkan untuk menutup separuh selisih harga terhadap acuan provinsi. Makin pendek, makin lancar barang berpindah. Nilai 0,74 bulan pada cabai rawit berarti separuh selisih tertutup dalam sekitar tiga minggu."],
-      ["Local projection", "proyeksi lokal", "Metode Jorda (2005) yang menghitung respons pada setiap bulan ke depan melalui regresi terpisah, sehingga tidak memaksakan satu bentuk lintasan seperti pada vektor autoregresi. Cocok untuk sampel pendek karena galat spesifikasi tidak menumpuk seiring bertambahnya horizon."],
-      ["Pass-through", "penerusan harga", "Bagian dari perubahan harga acuan yang diteruskan ke harga setempat pada bulan yang sama. Nilai mendekati satu berarti harga setempat mengikuti acuan hampir seketika."],
-      ["Confidence interval", "selang kepercayaan", "Rentang nilai yang masih sejalan dengan data pada taraf keyakinan tertentu, di sini 95 persen. Cara membacanya, bila selang mencakup nol maka pengaruhnya tidak dapat dibedakan dari nol dan angka titiknya tidak boleh dikutip sebagai temuan."],
-      ["MAPE", "galat persentase absolut rata-rata", "Rata-rata selisih mutlak antara lintasan model dan data sejarah, dinyatakan dalam persen. Angka 12,89 persen berarti model rata-rata meleset sebesar itu terhadap harga yang benar-benar terjadi."]
+      ["Error correction model", "model koreksi kesalahan", "Model statistik yang memisahkan penyesuaian jangka panjang dari guncangan jangka pendek. Digunakan untuk mengukur kecepatan harga daerah menyesuaikan diri terhadap harga acuan provinsi."],
+      ["Half-life", "paruh waktu penyesuaian", "Waktu yang dibutuhkan untuk menutup separuh selisih harga terhadap acuan. Makin pendek waktu ini, makin lancar perpindahan barang antarwilayah."],
+      ["Local projection", "proyeksi lokal", "Metode estimasi yang menghitung respons variabel pada setiap bulan ke depan secara terpisah, sehingga tidak memaksakan satu bentuk lintasan tertentu. Cocok untuk data dengan periode terbatas."],
+      ["Pass-through", "penerusan harga", "Proporsi perubahan harga acuan yang langsung diteruskan ke harga setempat pada bulan yang sama. Nilai yang mendekati satu berarti harga setempat mengikuti acuan hampir seketika."],
+      ["Confidence interval", "selang kepercayaan", "Rentang nilai yang masih konsisten dengan data pada tingkat keyakinan tertentu (misalnya 95%). Jika rentang ini mencakup nol, pengaruh variabel tersebut tidak signifikan secara statistik."],
+      ["MAPE", "galat persentase absolut rata-rata", "Rata-rata selisih mutlak antara hasil simulasi model dan data aktual, dinyatakan dalam persen. Angka ini digunakan untuk mengukur tingkat keakuratan model terhadap historis harga."]
     ]
   ],
   [
     "Optimisasi dan Keputusan",
     [
-      ["Pareto front", "himpunan kebijakan efisien", "Kumpulan kebijakan yang tidak dapat diperbaiki pada satu sasaran tanpa memperburuk sasaran lain. Cara membacanya, setiap titik pada front adalah satu pilihan yang sama sahnya, dan memilih di antaranya merupakan keputusan politik, bukan keputusan teknis. Model hanya menyingkirkan pilihan yang jelas kalah."],
-      ["Nondominated", "tidak terdominasi", "Sebuah paket mendominasi paket lain bila lebih baik pada sekurang-kurangnya satu sasaran dan tidak lebih buruk pada sasaran mana pun. Paket yang tidak dikalahkan paket lain mana pun inilah yang masuk ke Pareto front."],
-      ["Trade-off", "pertukaran antartujuan", "Keadaan ketika memperbaiki satu sasaran memaksa sasaran lain memburuk. Trade-off hanya nyata bila kedua sasaran benar-benar bebas satu sama lain, sehingga pemeriksaan redundansi dijalankan lebih dahulu."],
-      ["NSGA-III", "algoritma pencarian banyak tujuan", "Algoritma evolusioner Deb dan Jain (2014) untuk masalah dengan lebih dari tiga tujuan. Arah acuan disebar merata di ruang tujuan agar pencarian tidak menumpuk pada satu sudut, sebab pada banyak tujuan hampir seluruh populasi menjadi tidak terdominasi dan algoritma kehilangan dasar untuk memilih."],
-      ["Minimax regret", "penyesalan maksimum terkecil", "Kriteria Savage (1951) yang memilih kebijakan dengan selisih terburuk paling kecil terhadap kebijakan paling menguntungkan pada setiap keadaan. Dipakai ketika sebaran peluang atas parameter tidak diketahui, sehingga memaksimumkan nilai harapan tidak dapat dibenarkan."],
-      ["Common random numbers", "bilangan acak bersama", "Teknik memasangkan setiap perbandingan antarkebijakan pada nilai parameter yang sama, sehingga selisih di antara keduanya tidak tercampur keragaman acak dan perbandingannya menjadi adil."],
-      ["Deep uncertainty", "ketidakpastian mendalam", "Keadaan ketika sebaran peluang atas parameter tidak diketahui. Dalam keadaan seperti itu, menilai ketahanan hasil lebih tepat daripada memaksimumkan nilai harapan tunggal."],
-      ["Discriminability", "daya beda", "Perbandingan antara rentang nilai sasaran antarkebijakan dan lebar selang akibat ketidakpastian parameter. Rasio di bawah satu berarti perbedaan antarkebijakan tenggelam di dalam ketidakpastian, sehingga peringkat antarkebijakan pada sasaran itu tidak bermakna."],
-      ["Korelasi peringkat Spearman", "ukuran redundansi antartujuan", "Ukuran seberapa searah urutan dua sasaran sepanjang front. Nilai mendekati satu atau minus satu berarti kedua sasaran hanyalah dua cara membaca satu gerakan yang sama, sehingga pertukaran di antara keduanya tidak pernah menjadi pilihan nyata."]
+      ["Pareto front", "himpunan kebijakan efisien", "Kumpulan paket kebijakan yang efisien, di mana tidak ada satu sasaran pun yang bisa diperbaiki tanpa mengorbankan sasaran lainnya. Memilih di antara paket-paket ini adalah keputusan prioritas, bukan lagi masalah teknis."],
+      ["Nondominated", "tidak terdominasi (efisien)", "Status sebuah paket kebijakan yang tidak 'dikalahkan' oleh paket lain pada semua sasaran. Hanya paket dengan status ini yang masuk ke dalam Pareto front."],
+      ["Trade-off", "pertukaran antarsasaran", "Kondisi di mana perbaikan pada satu sasaran memaksa sasaran lain memburuk. Ini menunjukkan bahwa kedua sasaran tersebut saling bersaing untuk sumber daya atau instrumen yang sama."],
+      ["NSGA-III", "algoritma pencarian banyak tujuan", "Algoritma pencarian yang dirancang untuk menyelesaikan masalah dengan banyak tujuan sekaligus. Algoritma ini mencari berbagai alternatif kebijakan yang seimbang tanpa thiên pada satu sasaran saja."],
+      ["Minimax regret", "kriteria meminimalkan kerugian", "Kriteria pengambilan keputusan yang memilih opsi dengan risiko kerugian terbesar paling kecil. Kriteria ini digunakan untuk mencari kebijakan yang aman ketika probabilitas masa depan tidak diketahui secara pasti."],
+      ["Common random numbers", "bilangan acak bersama", "Teknik simulasi yang menguji seluruh paket kebijakan pada skenario ketidakpastian yang persis sama. Ini memastikan perbandingan antarkebijakan berjalan adil dan tidak bias oleh faktor kebetulan."],
+      ["Deep uncertainty", "ketidakpastian mendalam", "Kondisi ketika probabilitas kejadian masa depan tidak diketahui. Dalam kondisi ini, pendekatan yang tepat adalah mencari kebijakan yang tangguh (robust) di berbagai skenario, bukan mencari nilai harapan rata-rata."],
+      ["Discriminability", "daya beda", "Perbandingan antara rentang kinerja antarkebijakan terhadap lebar selang ketidakpastian parameter. Jika rasionya di bawah satu, perbedaan kinerja kebijakan tidak dapat dibedakan dari ketidakpastian data, sehingga peringkatnya tidak valid untuk dikutip."],
+      ["Korelasi peringkat Spearman", "uji redundansi antarsasaran", "Ukuran statistik untuk mendeteksi redundansi antarsasaran. Jika korelasinya sangat tinggi (mendekati 1 atau -1), kedua sasaran tersebut sebenarnya mengukur hal yang sama, sehingga pertukaran di antara keduanya bukanlah pilihan kebijakan yang nyata."]
     ]
   ],
   [
     "Ukuran Hasil dan Konteks",
     [
-      ["Arbitrase", "perpindahan barang antarwilayah", "Tindakan memindahkan barang dari pasar berharga rendah ke pasar berharga tinggi untuk mengambil selisihnya. Arbitrase inilah yang menyeragamkan harga antarwilayah, dan di dalam model ini merupakan loop paling dominan."],
-      ["Price taker", "penerima harga", "Keadaan ketika suatu wilayah terlalu kecil untuk memengaruhi harga pasar yang lebih luas, sehingga tingkat harganya mengikuti acuan dari luar. Untuk komoditas yang dapat diperdagangkan antarpulau, Sumatera Utara berperilaku demikian pada tingkat provinsi."],
-      ["Dispersi harga antarwilayah", "sebaran harga", "Ukuran seberapa jauh harga antarkabupaten saling berbeda pada bulan yang sama. Menyempitnya sebaran berarti harga makin seragam antarwilayah, meskipun rata-ratanya belum tentu turun."],
-      ["Supply shortfall", "kekurangan pasokan", "Selisih antara kebutuhan konsumsi dan pasokan yang tersedia, dinyatakan sebagai persentase kebutuhan. Nilai tanpa intervensi pada model ini adalah 0,88 persen."],
-      ["Nilai tukar petani", "NTP", "Perbandingan antara indeks harga yang diterima petani dan indeks harga yang dibayar petani. Kenaikannya menunjukkan daya tukar hasil pertanian yang membaik terhadap kebutuhan belanja rumah tangga tani."],
-      ["Selang persentil 10 sampai 90", "rentang hasil yang wajar", "Rentang yang memuat delapan puluh persen hasil dari 60 penarikan parameter acak. Cara membacanya, bila seluruh rentang berada di satu sisi garis nol maka arah pengaruh kebijakan tetap pada hampir semua keadaan yang diuji."],
-      ["Pagu anggaran", "batas belanja", "Batas atas belanja kebijakan, ditetapkan sebesar satu persen belanja daerah gabungan, yaitu 0,599 triliun rupiah, dan diturunkan dari dokumen anggaran daerah yang berlaku."]
+      ["Arbitrase", "perpindahan barang antarwilayah", "Kegiatan memindahkan barang dari wilayah berharga rendah ke wilayah berharga tinggi untuk mengambil keuntungan dari selisihnya. Dalam model ini, arbitrase adalah mekanisme utama yang menyeragamkan harga antarwilayah."],
+      ["Price taker", "penerima harga", "Kondisi ketika ukuran pasar suatu wilayah terlalu kecil untuk memengaruhi harga secara unilateral, sehingga harganya mengikuti acuan dari pasar yang lebih luas (provinsi/nasional)."],
+      ["Dispersi harga antarwilayah", "sebaran harga", "Ukuran statistik yang menangkap seberapa jauh perbedaan harga komoditas yang sama di berbagai kabupaten pada bulan yang sama. Menyempitnya dispersi mengindikasikan integrasi pasar yang membaik."],
+      ["Supply shortfall", "kekurangan pasokan", "Persentase kekurangan pasokan di suatu wilayah relatif terhadap kebutuhan konsumsinya. Indikator ini digunakan untuk mengukur kecukupan pasokan pangan lokal."],
+      ["Nilai tukar petani", "NTP", "Indikator daya beli rumah tangga tani yang membandingkan harga hasil produksi terhadap harga barang konsumsi. Kenaikan NTP menunjukkan membaiknya kesejahteraan produsen di wilayah surplus."],
+      ["Selang persentil 10 sampai 90", "rentang ketahanan simulasi", "Rentang yang memuat 80 persen hasil dari berbagai skenario simulasi. Jika seluruh rentang ini berada di satu sisi garis nol, arah dampak kebijakan dapat dijamin tetap konsisten meski parameter berubah-ubah."],
+      ["Pagu anggaran", "batasan fiskal", "Batas atas real belanja kebijakan yang ditetapkan sebesar satu persen dari total belanja daerah gabungan. Pagu ini membatasi ruang kebijakan agar pencarian alternatif tetap realistis secara fiskal."]
     ]
   ]
 ];
